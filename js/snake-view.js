@@ -6,15 +6,22 @@
   var View = Snakes.View = function ($el) {
     this.el = $el;
     this.board = new Snakes.Board();
+    this.el.html(this.board.grid);
     var currentView = this;
     $(document).on("keydown", function (event) {
       currentView.handleKeyEvent(event);
     });
 
     setInterval((function () {
-      this.step();
+      this.gameStep();
     }).bind(this), 50);
   };
+
+  View.prototype.gameStep = function () {
+    this.board.pageRender();
+    this.board.snake.move();
+    this.board.isEatApple();
+  }
 
   View.prototype.step = function () {
     var htmlString = this.board.render();
