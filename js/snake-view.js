@@ -9,7 +9,11 @@
     this.el.html(this.board.grid);
     var currentView = this;
     $(document).on("keydown", function (event) {
-      currentView.handleKeyEvent(event);
+      if (!currentView.keyEventLive || currentView.board.snake.dir === event.keyCode) {
+        currentView.keyEventLive = true;
+        currentView.handleKeyEvent(event);
+        currentView.gameStep();
+      }
     });
 
     setInterval((function () {
@@ -22,6 +26,7 @@
     this.board.pageRender();
     this.board.snake.move();
     this.board.isEatApple();
+    this.keyEventLive = false;
   }
 
   View.prototype.step = function () {
