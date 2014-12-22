@@ -13,8 +13,9 @@
     });
 
     setInterval((function () {
+
       this.gameStep();
-    }).bind(this), 50);
+    }).bind(this), 75);
   };
 
   View.prototype.gameStep = function () {

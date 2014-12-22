@@ -17,6 +17,13 @@
     37: [0, -1] // left
   };
 
+  Snake.ENGDIRS = {
+    38: 'up',
+    39: 'right',
+    40: 'down',
+    37: 'left'
+  }
+
   Snake.LENGTH = 3;
 
   Snake.prototype.move = function () {
@@ -57,6 +64,26 @@
       this.segments.push(newSegment);
     }
   };
+
+  Snake.prototype.isLastSegment = function(coord) {
+    var segX = this.segments[this.segments.length-1].x;
+    var segY = this.segments[this.segments.length-1].y;
+    var coordX = coord.x;
+    var coordY = coord.y;
+    if (segX === coordX && segY === coordY) {
+      return true;
+    }
+  }
+
+  Snake.prototype.isHeadSegment = function(coord) {
+    var segX = this.segments[0].x;
+    var segY = this.segments[0].y;
+    var coordX = coord.x;
+    var coordY = coord.y;
+    if (segX === coordX && segY === coordY) {
+      return true;
+    }
+  }
 
   Snake.prototype.isInSegments = function (coord) {
     for (var i = 0; i < this.segments.length; i++) {

@@ -6,20 +6,74 @@ body, main, div, ul, li {
 }
 
 ul {
-  width: 400px;
+  width: 440px;
   display: block;
 }
 
 li {
+  border-radius: 5px;
+  position: relative;
+  border: 1px solid grey;
+  opacity: 100;
+  left: 40px;
+  top: 40px;
   width: 20px;
   height: 20px;
   float:left;
+  -webkit-transition: top 0.10s, left 0.10s, opacity 2.5s, border-radius 2.5s;
 }
 
-.snake {
+.snakeleft {
+  border-radius: 9px;
+  border: 1px solid green;
   background: green;
+  left: 20px;
+  opacity: 0.1;
 }
 
+.tailleft {
+  /*left: 0px;*/
+}
+
+.snakeright {
+  border: 1px solid green;
+  background: green;
+  left: 60px;
+  opacity: 0.1;
+}
+
+.tailright {
+  border: 1px solid green;
+  opacity: 10;
+  /*left: 80px;*/
+}
+
+.snakeup {
+  border: 1px solid green;
+  background: green;
+  top: 20px;
+  opacity: 0.1;
+}
+
+.tailup {
+  opacity: 10;
+  top: 0px;
+}
+
+.snakedown {
+  border: 1px solid green;
+  background: green;
+  top: 60px;
+  opacity: 0.1;
+}
+
+.taildown {
+  border: 1px solid green;
+  opacity: 10;
+  top: 80px;
+}
 .apple {
+  border: 1px solid red;
+  border-radius: 10px;
   background: red;
 }

@@ -33,13 +33,18 @@
       for (var j = 0; j < Board.DIM_Y; j++) {
         var newCoord = new Snakes.Coord(i, j);
         var apple = this.apples[0];
+        var gridPoint = $($(this.grid[i]).children()[j]);
+        var currDirr = Snakes.Snake.ENGDIRS[this.snake.dir];
         if (this.snake.isInSegments(newCoord)) {
-          $($(this.grid[i]).children()[j]).addClass('snake');
-            console.log($($(this.grid[i]).children()[j]));
+          if (this.snake.isHeadSegment(newCoord)){
+            gridPoint.addClass('snake' + currDirr);
+          } else {
+            // gridPoint.addClass('tail' + currDirr);
+          }
         } else if (apple.y === j && apple.x === i) {
-          $($(this.grid[i]).children()[j]).addClass('apple');
+          gridPoint.addClass('apple');
         } else {
-          $($(this.grid[i]).children()[j]).removeClass();
+          gridPoint.removeClass();
         }
       }
     }
