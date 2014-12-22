@@ -19,7 +19,7 @@
     setInterval((function () {
 
       this.gameStep();
-    }).bind(this), 75);
+    }).bind(this), 100);
   };
 
   View.prototype.gameStep = function () {

@@ -38,8 +38,6 @@
         if (this.snake.isInSegments(newCoord)) {
           if (this.snake.isHeadSegment(newCoord)){
             gridPoint.addClass('snake' + currDirr);
-          } else {
-            // gridPoint.addClass('tail' + currDirr);
           }
         } else if (apple.y === j && apple.x === i) {
           gridPoint.addClass('apple');

@@ -13,7 +13,8 @@ ul {
 li {
   border-radius: 5px;
   position: relative;
-  border: 1px solid grey;
+  border: solid grey;
+  border-width: 1px;
   opacity: 100;
   left: 40px;
   top: 40px;
@@ -25,9 +26,10 @@ li {
 
 .snakeleft {
   border-radius: 9px;
-  border: 1px solid green;
+  border: solid green;
+  border-width: 1px;
   background: green;
-  left: 20px;
+  left: 19px;
   opacity: 0.1;
 }
 
@@ -36,9 +38,10 @@ li {
 }
 
 .snakeright {
-  border: 1px solid green;
+  border: solid green;
   background: green;
-  left: 60px;
+  border-width: 1px;
+  left: 61px;
   opacity: 0.1;
 }
 
@@ -49,9 +52,10 @@ li {
 }
 
 .snakeup {
-  border: 1px solid green;
+  border: solid green;
   background: green;
-  top: 20px;
+  border-width: 1px;
+  top: 19px;
   opacity: 0.1;
 }
 
@@ -63,17 +67,19 @@ li {
 .snakedown {
   border: 1px solid green;
   background: green;
-  top: 60px;
+  top: 61px;
   opacity: 0.1;
 }
 
 .taildown {
-  border: 1px solid green;
+  border: solid green;
+
   opacity: 10;
   top: 80px;
 }
 .apple {
-  border: 1px solid red;
+  border: solid red;
+  border-width: 1px;
   border-radius: 10px;
   background: red;
 }
