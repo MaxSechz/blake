@@ -3,15 +3,18 @@
     window.Snakes = {};
   }
 
-  var Board = Snakes.Board = function () {
+  var Board = Snakes.Board = function ($score) {
     this.snake = new Snakes.Snake();
     this.apples = [];
     this.addApple();
     this.setupGrid();
+    this.score = 0;
+    this.$score = $score;
+    this.$score.html(this.score);
   };
 
-  Board.DIM_X = 40;
-  Board.DIM_Y = 40;
+  Board.DIM_X = 30;
+  Board.DIM_Y = 30;
 
   Board.prototype.setupGrid = function() {
     var newGrid
@@ -46,26 +49,6 @@
         }
       }
     }
-  }
-
-  Board.prototype.render = function () {
-   var htmlString = '<pre>';
-   for (var i = 0; i < Board.DIM_X; i++) {
-     for (var j = 0; j < Board.DIM_Y; j++) {
-      var newCoord = new Snakes.Coord(i, j);
-      var apple = this.apples[0];
-      if (this.snake.isInSegments(newCoord)) {
-        htmlString += 'S';
-      } else if (apple.y === j && apple.x === i) {
-        htmlString += 'A';
-      } else {
-        htmlString += '.';
-      }
-     }
-     htmlString += '\n';
-   }
-
-   return htmlString + '</pre>';
   };
 
   Board.prototype.addApple =  function () {
@@ -82,6 +65,8 @@
      this.snake.isGrowing = true;
      this.apples.pop();
      this.addApple();
+     this.score += 1;
+     this.$score.html(this.score)
    }
   };
 

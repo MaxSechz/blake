@@ -7,7 +7,16 @@
 
   </head>
   <body>
-    <div class="game"></div>
+
+    <div class="game">
+
+    <div class="score"></div>
+    <div class="board">
+      <header>
+        <span>This Little Guy's Name is Blake. He Loves Oranges. Click to Start!</span>
+      </header>
+    </div>
+    </div>
 
 
     <script src="../js/jquery-2.1.1.js"></script>
@@ -18,7 +27,7 @@
 
     <script>
       // Write your code here.
-      var gameView = new Snakes.View($("div"));
+      var gameView = new Snakes.View($("div.board"));
     </script>
   </body>
 </html>

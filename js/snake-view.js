@@ -5,33 +5,32 @@
 
   var View = Snakes.View = function ($el) {
     this.el = $el;
-    this.board = new Snakes.Board();
-    this.el.html(this.board.grid);
+    this.board = new Snakes.Board($("div.score"));
+    this.el.append(this.board.grid);
     var currentView = this;
     $(document).on("keydown", function (event) {
       if (!currentView.keyEventLive) {
         currentView.handleKeyEvent(event);
       }
     });
+    this.gameStep();
+    $("header").on("click", this.startGame.bind(this));
+  };
 
+  View.prototype.startGame = function () {
+    $("header").off("click");
+    $("header").css("opacity", 0)
     setInterval((function () {
-      currentView.keyEventLive = false;
+      this.keyEventLive = false;
       this.gameStep();
     }).bind(this), 100);
-  };
+  }
 
   View.prototype.gameStep = function () {
     this.board.pageRender();
     this.board.isEatApple();
     this.board.snake.move();
   }
-
-  View.prototype.step = function () {
-    var htmlString = this.board.render();
-    this.el.html(htmlString);
-    this.board.snake.move();
-    this.board.isEatApple();
-  };
 
   View.prototype.handleKeyEvent = function (event) {
     var code = event.keyCode;
