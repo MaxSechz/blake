@@ -10,8 +10,8 @@
     this.setupGrid();
   };
 
-  Board.DIM_X = 20;
-  Board.DIM_Y = 20;
+  Board.DIM_X = 40;
+  Board.DIM_Y = 40;
 
   Board.prototype.setupGrid = function() {
     var newGrid
@@ -37,7 +37,7 @@
         var currDirr = Snakes.Snake.ENGDIRS[this.snake.dir];
         if (this.snake.isInSegments(newCoord)) {
           if (this.snake.isHeadSegment(newCoord)){
-            gridPoint.addClass('snake' + currDirr);
+            gridPoint.addClass('snake').addClass(currDirr);
           }
         } else if (apple.y === j && apple.x === i) {
           gridPoint.addClass('apple');

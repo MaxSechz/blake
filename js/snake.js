@@ -4,6 +4,7 @@
   }
 
   var Snake = Snakes.Snake = function () {
+    this.nextDir = 37;
     this.dir = 37;
     this.segments = [];
     this.isGrowing = false;

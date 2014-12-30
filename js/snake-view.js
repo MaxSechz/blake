@@ -9,24 +9,21 @@
     this.el.html(this.board.grid);
     var currentView = this;
     $(document).on("keydown", function (event) {
-      if (!currentView.keyEventLive || currentView.board.snake.dir === event.keyCode) {
-        currentView.keyEventLive = true;
+      if (!currentView.keyEventLive) {
         currentView.handleKeyEvent(event);
-        currentView.gameStep();
       }
     });
 
     setInterval((function () {
-
+      currentView.keyEventLive = false;
       this.gameStep();
     }).bind(this), 100);
   };
 
   View.prototype.gameStep = function () {
     this.board.pageRender();
-    this.board.snake.move();
     this.board.isEatApple();
-    this.keyEventLive = false;
+    this.board.snake.move();
   }
 
   View.prototype.step = function () {
@@ -43,6 +40,7 @@
     var yOpp = Math.abs(Snakes.Snake.DIRS[code][1]) === Math.abs(Snakes.Snake.DIRS[currDir][1])
     if (!(xOpp && yOpp)) {
       this.board.snake.turn(event.keyCode);
+      this.keyEventLive = true;
     }
   };
 

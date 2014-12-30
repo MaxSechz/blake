@@ -5,81 +5,78 @@ body, main, div, ul, li {
   list-style: none;
 }
 
-ul {
-  width: 440px;
+
+div.game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 800px;
+  display: block;
+  background: whitesmoke;
+  border: 2px solid black;
+}
+
+ul:after {
+  content: "";
+  clear: both;
   display: block;
 }
 
 li {
-  border-radius: 5px;
+  background-color: lightgrey;
+  border-radius: 6px;
   position: relative;
-  border: solid grey;
-  border-width: 1px;
-  opacity: 100;
-  left: 40px;
-  top: 40px;
+  border-color: lightgrey;
+  border-width: 0px;
+  border-style: solid;
+  left: 0px;
+  top: 0px;
   width: 20px;
   height: 20px;
   float:left;
-  -webkit-transition: top 0.10s, left 0.10s, opacity 2.5s, border-radius 2.5s;
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.5s, top 0.2s, left 0.2s, border-radius 2s, border-width 5s, border-color 0.5s;
 }
 
-.snakeleft {
-  border-radius: 9px;
-  border: solid green;
-  border-width: 1px;
-  background: green;
-  left: 19px;
-  opacity: 0.1;
+
+.left {
+  left: -20px;
 }
 
-.tailleft {
-  /*left: 0px;*/
+
+.right {
+  left: 20px;
 }
 
-.snakeright {
-  border: solid green;
-  background: green;
-  border-width: 1px;
-  left: 61px;
-  opacity: 0.1;
+.up {
+  top: -20px;
 }
 
-.tailright {
-  border: 1px solid green;
-  opacity: 10;
-  /*left: 80px;*/
+
+.down {
+  top: 20px;
 }
 
-.snakeup {
-  border: solid green;
-  background: green;
-  border-width: 1px;
-  top: 19px;
-  opacity: 0.1;
-}
-
-.tailup {
-  opacity: 10;
-  top: 0px;
-}
-
-.snakedown {
-  border: 1px solid green;
-  background: green;
-  top: 61px;
-  opacity: 0.1;
-}
-
-.taildown {
-  border: solid green;
-
-  opacity: 10;
-  top: 80px;
-}
 .apple {
-  border: solid red;
-  border-width: 1px;
+  border-style: solid;
+  border-color: blue;
   border-radius: 10px;
-  background: red;
+  border-width: 0px;
+  background-color: blue;
+}
+
+.snake {
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: orange;
+  background-color: orange;
+  z-index: 1;
+  -webkit-transition: top 0.2s, left 0.2s, border-radius 1s, border-width 1s;
+}
+
+.apple.snake {
+  background-color: blue;
+  border-width: 10px;
 }
