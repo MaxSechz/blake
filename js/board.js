@@ -17,7 +17,7 @@
   Board.DIM_Y = 30;
 
   Board.prototype.setupGrid = function() {
-    var newGrid
+    var newGrid;
     for (var i = 0; i < Board.DIM_Y; i++) {
       var newPiece = $('<ul>')
       if (newGrid) {

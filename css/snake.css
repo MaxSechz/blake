@@ -20,6 +20,8 @@ header {
 }
 
 header span {
+  display: block;
+  padding-top: 50px;
   font-family: sans-serif;
   font-size: 60px;
   color: white;
@@ -28,7 +30,7 @@ header span {
 
 div.score {
   top: 50%;
-  left: 10%;
+  left: 400px;
   transform: translate(-25%, -50%);
   line-height: 160px;
   text-align: center;
@@ -79,7 +81,7 @@ li {
   height: 20px;
   float:left;
   box-sizing: border-box;
-  -webkit-transition: background-color 0.5s, top 0.2s, left 0.2s, border-radius 2s, border-width 5s, border-color 0.5s;
+  -webkit-transition: background-color 0.15s, top 0.2s, left 0.2s, border-radius 2s, border-width 5s, border-color 0.15s;
 }
 
 

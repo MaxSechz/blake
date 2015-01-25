@@ -4,10 +4,11 @@
   }
 
   var View = Snakes.View = function ($el) {
-    this.el = $el;
-    this.board = new Snakes.Board($("div.score"));
-    this.el.append(this.board.grid);
     var currentView = this;
+    this.$el = $el;
+    this.$el.on("gameover", this.stopGame.bind(this));
+    this.board = new Snakes.Board($("div.score"));
+    this.$el.append(this.board.grid);
     $(document).on("keydown", function (event) {
       if (!currentView.keyEventLive) {
         currentView.handleKeyEvent(event);
@@ -20,10 +21,21 @@
   View.prototype.startGame = function () {
     $("header").off("click");
     $("header").css("opacity", 0)
-    setInterval((function () {
+    this.timer = setInterval((function () {
       this.keyEventLive = false;
       this.gameStep();
     }).bind(this), 100);
+  }
+
+  View.prototype.stopGame = function () {
+    window.clearInterval(this.timer);
+    $("header").on("click");
+    $("header").css("opacity", 0.5);
+    this.board = new Snakes.Board($("div.score"));
+    this.$el.find("ul").remove();
+    this.$el.append(this.board.grid);
+    this.gameStep();
+    $("header").on("click", this.startGame.bind(this));
   }
 
   View.prototype.gameStep = function () {

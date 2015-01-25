@@ -33,8 +33,7 @@
     var head = this.segments[0];
     var newHead = head.plus(newCoord);
     if (this.isInSegments(newHead)) {
-      alert("You SUCK!");
-      window.location.reload();
+      $("div.board").trigger("gameover");
     }
 
     if (newHead.x >= Snakes.Board.DIM_X || newHead.y >= Snakes.Board.DIM_Y) {
